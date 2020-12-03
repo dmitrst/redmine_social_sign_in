@@ -41,9 +41,9 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     env['omniauth.strategy'].options[:client_secret] = Setting.plugin_redmine_social_sign_in['oauth2_generic_app_secret']
   }, client_options: {
     'site' => Setting.plugin_redmine_social_sign_in['oauth2_generic_site'],
-    'authorize_url' => '/oauth/authorize',
-    'token_url' => '/oauth/access_token',
-    'user_info_url' => '/api/v4/users/me'
+    'authorize_url' => Setting.plugin_redmine_social_sign_in['oauth2_generic_site']+'/oauth/authorize',
+    'token_url' => Setting.plugin_redmine_social_sign_in['oauth2_generic_site']+'/oauth/access_token',
+    'user_info_url' => Setting.plugin_redmine_social_sign_in['oauth2_generic_site']+'/api/v4/users/me'
   }, user_response_structure: {
     root_path: [],
     attributes: { name: 'first_name'+'last_name',
