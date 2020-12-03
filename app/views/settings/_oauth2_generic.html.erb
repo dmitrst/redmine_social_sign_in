@@ -1,0 +1,29 @@
+<h3><%= l(:label_wechat) %></h3>
+<p>
+  <%= label_tag('settings_oauth2_generic_enabled', l(:enable, scope: [:redmine_social_sign_in])) %>
+  <%= check_box_tag('settings[oauth2_generic_enabled]', '1', @settings['oauth2_generic_enabled'] == '1') %>
+</p>
+
+<p>
+  <%= label_tag('settings_oauth2_generic_app_id', l(:app_id, scope: [:redmine_social_sign_in])) %>
+  <%= text_field_tag 'settings[oauth2_generic_app_id]', @settings['oauth2_generic_app_id'] %>
+</p>
+
+<p>
+  <%= label_tag('settings_oauth2_generic_app_secret', l(:app_secret, scope: [:redmine_social_sign_in])) %>
+  <%= text_field_tag 'settings[oauth2_generic_app_secret]', @settings['oauth2_generic_app_secret'] %>
+</p>
+<p>
+  <%= label_tag('settings_oauth2_generic_site', l(:app_site, scope: [:redmine_social_sign_in])) %>
+  <%= text_field_tag 'settings[oauth2_generic_site]', @settings['oauth2_generic_site'] %>
+</p>
+
+<h4><%= l(:label_provider_help) %></h4>
+
+<p>
+  TODO
+
+<li>Fill "Authorized redirect URIs"
+  with <%= text_field_tag '', "#{Setting.protocol}://#{Setting.host_name}/social_sign_in/oauth2_generic/callback", size: 50 %></li>
+
+</p>

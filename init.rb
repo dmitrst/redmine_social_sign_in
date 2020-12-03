@@ -24,7 +24,10 @@ Redmine::Plugin.register :redmine_social_sign_in do
                'qq_connect_app_secret' => '',
                'wechat_enabled'        => '0',
                'wechat_app_id'         => '',
-               'wechat_app_secret'     => ''
+               'wechat_app_secret'     => '',
+               'oauth2_generic_enabled'        => '0',
+               'oauth2_generic_app_id'         => '',
+               'oauth2_generic_site'     => '',
            }
 end
 

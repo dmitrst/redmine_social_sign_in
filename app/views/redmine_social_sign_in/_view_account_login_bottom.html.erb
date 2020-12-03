@@ -1,5 +1,5 @@
 <div class="<%= Redmine::Plugin.registered_plugins[:easy_extensions].nil? ? 'social_sign_in' : 'easy-social-login' %>">
-  <%= l(:label_social_sign_in) %>:
+  <%= l(:label_oauth2_generic) %>:
   <% if Setting.plugin_redmine_social_sign_in['google_enabled'] == '1' %>
     <%= link_to('social_sign_in/google_oauth2', title: l(:title_social_sign_in, provider: l(:label_google))) do %>
       <%= image_tag('google.png', plugin: 'redmine_social_sign_in', size: '24') %>
@@ -27,6 +27,11 @@
   <% end %>
   <% if Setting.plugin_redmine_social_sign_in['wechat_enabled'] == '1' %>
     <%= link_to('social_sign_in/wechat', title: l(:title_social_sign_in, provider: l(:label_wechat))) do %>
+      <%= image_tag('wechat.png', plugin: 'redmine_social_sign_in', size: '24') %>
+    <% end %>
+  <% end %>
+  <% if Setting.plugin_redmine_social_sign_in['oauth2_generic_enabled'] == '1' %>
+    <%= link_to('social_sign_in/oauth2_generic', title: l(:title_social_sign_in, provider: l(:label_oauth2_generic))) do %>
       <%= image_tag('wechat.png', plugin: 'redmine_social_sign_in', size: '24') %>
     <% end %>
   <% end %>

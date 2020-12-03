@@ -36,5 +36,22 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     env['omniauth.strategy'].options[:client_secret] = Setting.plugin_redmine_social_sign_in['wechat_app_secret']
   }, scope:                'snsapi_userinfo', path_prefix: '/social_sign_in'
 
+  provider :oauth2_generic, setup: -> (env) {
+    env['omniauth.strategy'].options[:client_id]     = Setting.plugin_redmine_social_sign_in['oauth2_generic_app_id']
+    env['omniauth.strategy'].options[:client_secret] = Setting.plugin_redmine_social_sign_in['oauth2_generic_app_secret']
+  }, client_options: {
+    'site' => Setting.plugin_redmine_social_sign_in['oauth2_generic_site'],
+    'authorize_url' => '/oauth/authorize',
+    'token_url' => '/oauth/access_token',
+    'user_info_url' => '/api/v4/users/me'
+  }, user_response_structure: {
+    root_path: [],
+    attributes: { name: 'first_name'+'last_name',
+                  first_name: 'first_name',
+                  last_name: 'last_name',
+                  nickname: 'username',
+                  email: 'email'
+    }
+  }, path_prefix:            '/social_sign_in'
 end
 
