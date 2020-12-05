@@ -49,7 +49,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     attributes: { name: 'first_name'+'last_name',
                   first_name: 'first_name',
                   last_name: 'last_name',
-                  username: 'username',
+                  login: 'username',
                   email: 'email'
     }
   }, path_prefix:            '/social_sign_in'
